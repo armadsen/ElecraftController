@@ -12,6 +12,8 @@
 		9DF6E0D41A6C34E1000FB649 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6E0D21A6C34E1000FB649 /* main.m */; };
 		9DF6E0DA1A6C34E7000FB649 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DF6E0D61A6C34E7000FB649 /* MainMenu.xib */; };
 		9DF6E0DB1A6C34E7000FB649 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DF6E0D81A6C34E7000FB649 /* Images.xcassets */; };
+		9DF6E0E21A6C3549000FB649 /* ORSMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6E0E01A6C3549000FB649 /* ORSMainWindowController.m */; };
+		9DF6E0E61A6C355D000FB649 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DF6E0E41A6C355D000FB649 /* MainWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,9 @@
 		9DF6E0D71A6C34E7000FB649 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		9DF6E0D81A6C34E7000FB649 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9DF6E0D91A6C34E7000FB649 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DF6E0DF1A6C3549000FB649 /* ORSMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSMainWindowController.h; sourceTree = "<group>"; };
+		9DF6E0E01A6C3549000FB649 /* ORSMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSMainWindowController.m; sourceTree = "<group>"; };
+		9DF6E0E51A6C355D000FB649 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +101,8 @@
 			children = (
 				9DF6E0D01A6C34E1000FB649 /* ORSAppController.h */,
 				9DF6E0D11A6C34E1000FB649 /* ORSAppController.m */,
+				9DF6E0DF1A6C3549000FB649 /* ORSMainWindowController.h */,
+				9DF6E0E01A6C3549000FB649 /* ORSMainWindowController.m */,
 				9DF6E0DE1A6C34F3000FB649 /* Supporting Files */,
 			);
 			path = Sources;
@@ -115,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				9DF6E0D61A6C34E7000FB649 /* MainMenu.xib */,
+				9DF6E0E41A6C355D000FB649 /* MainWindow.xib */,
 			);
 			name = XIBs;
 			sourceTree = "<group>";
@@ -210,6 +218,7 @@
 			files = (
 				9DF6E0DA1A6C34E7000FB649 /* MainMenu.xib in Resources */,
 				9DF6E0DB1A6C34E7000FB649 /* Images.xcassets in Resources */,
+				9DF6E0E61A6C355D000FB649 /* MainWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DF6E0D41A6C34E1000FB649 /* main.m in Sources */,
+				9DF6E0E21A6C3549000FB649 /* ORSMainWindowController.m in Sources */,
 				9DF6E0D31A6C34E1000FB649 /* ORSAppController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,6 +267,14 @@
 				9DF6E0D71A6C34E7000FB649 /* Base */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		9DF6E0E41A6C355D000FB649 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9DF6E0E51A6C355D000FB649 /* Base */,
+			);
+			name = MainWindow.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

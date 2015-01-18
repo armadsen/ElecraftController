@@ -7,18 +7,20 @@
 //
 
 #import "ORSAppController.h"
+#import "ORSMainWindowController.h"
 
 @interface ORSAppController ()
+
+@property (nonatomic, strong) ORSMainWindowController *mainWindowController;
+
 @end
 
 @implementation ORSAppController
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-	// Insert code here to initialize your application
-}
-
-- (void)applicationWillTerminate:(NSNotification *)aNotification {
-	// Insert code here to tear down your application
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
+{
+	self.mainWindowController = [ORSMainWindowController windowController];
+	[self.mainWindowController showWindow:nil];
 }
 
 @end
