@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9DF6E0B31A6C34A0000FB649 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6E0B21A6C34A0000FB649 /* AppDelegate.m */; };
-		9DF6E0B51A6C34A0000FB649 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6E0B41A6C34A0000FB649 /* main.m */; };
-		9DF6E0B71A6C34A0000FB649 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DF6E0B61A6C34A0000FB649 /* Images.xcassets */; };
-		9DF6E0BA1A6C34A0000FB649 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DF6E0B81A6C34A0000FB649 /* MainMenu.xib */; };
 		9DF6E0C61A6C34A0000FB649 /* Elecraft_ControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6E0C51A6C34A0000FB649 /* Elecraft_ControllerTests.m */; };
+		9DF6E0D31A6C34E1000FB649 /* ORSAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6E0D11A6C34E1000FB649 /* ORSAppController.m */; };
+		9DF6E0D41A6C34E1000FB649 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6E0D21A6C34E1000FB649 /* main.m */; };
+		9DF6E0DA1A6C34E7000FB649 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DF6E0D61A6C34E7000FB649 /* MainMenu.xib */; };
+		9DF6E0DB1A6C34E7000FB649 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DF6E0D81A6C34E7000FB649 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,15 +26,15 @@
 
 /* Begin PBXFileReference section */
 		9DF6E0AC1A6C34A0000FB649 /* Elecraft Controller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Elecraft Controller.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9DF6E0B01A6C34A0000FB649 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9DF6E0B11A6C34A0000FB649 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		9DF6E0B21A6C34A0000FB649 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		9DF6E0B41A6C34A0000FB649 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9DF6E0B61A6C34A0000FB649 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		9DF6E0B91A6C34A0000FB649 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		9DF6E0BF1A6C34A0000FB649 /* Elecraft ControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Elecraft ControllerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DF6E0C41A6C34A0000FB649 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DF6E0C51A6C34A0000FB649 /* Elecraft_ControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Elecraft_ControllerTests.m; sourceTree = "<group>"; };
+		9DF6E0D01A6C34E1000FB649 /* ORSAppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSAppController.h; sourceTree = "<group>"; };
+		9DF6E0D11A6C34E1000FB649 /* ORSAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSAppController.m; sourceTree = "<group>"; };
+		9DF6E0D21A6C34E1000FB649 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9DF6E0D71A6C34E7000FB649 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		9DF6E0D81A6C34E7000FB649 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9DF6E0D91A6C34E7000FB649 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +58,8 @@
 		9DF6E0A31A6C34A0000FB649 = {
 			isa = PBXGroup;
 			children = (
-				9DF6E0AE1A6C34A0000FB649 /* Elecraft Controller */,
+				9DF6E0CF1A6C34E1000FB649 /* Sources */,
+				9DF6E0D51A6C34E7000FB649 /* Resources */,
 				9DF6E0C21A6C34A0000FB649 /* Elecraft ControllerTests */,
 				9DF6E0AD1A6C34A0000FB649 /* Products */,
 			);
@@ -71,27 +72,6 @@
 				9DF6E0BF1A6C34A0000FB649 /* Elecraft ControllerTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		9DF6E0AE1A6C34A0000FB649 /* Elecraft Controller */ = {
-			isa = PBXGroup;
-			children = (
-				9DF6E0B11A6C34A0000FB649 /* AppDelegate.h */,
-				9DF6E0B21A6C34A0000FB649 /* AppDelegate.m */,
-				9DF6E0B61A6C34A0000FB649 /* Images.xcassets */,
-				9DF6E0B81A6C34A0000FB649 /* MainMenu.xib */,
-				9DF6E0AF1A6C34A0000FB649 /* Supporting Files */,
-			);
-			path = "Elecraft Controller";
-			sourceTree = "<group>";
-		};
-		9DF6E0AF1A6C34A0000FB649 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				9DF6E0B01A6C34A0000FB649 /* Info.plist */,
-				9DF6E0B41A6C34A0000FB649 /* main.m */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		9DF6E0C21A6C34A0000FB649 /* Elecraft ControllerTests */ = {
@@ -107,6 +87,42 @@
 			isa = PBXGroup;
 			children = (
 				9DF6E0C41A6C34A0000FB649 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9DF6E0CF1A6C34E1000FB649 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				9DF6E0D01A6C34E1000FB649 /* ORSAppController.h */,
+				9DF6E0D11A6C34E1000FB649 /* ORSAppController.m */,
+				9DF6E0DE1A6C34F3000FB649 /* Supporting Files */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		9DF6E0D51A6C34E7000FB649 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9DF6E0DD1A6C34EA000FB649 /* XIBs */,
+				9DF6E0D81A6C34E7000FB649 /* Images.xcassets */,
+				9DF6E0D91A6C34E7000FB649 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9DF6E0DD1A6C34EA000FB649 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				9DF6E0D61A6C34E7000FB649 /* MainMenu.xib */,
+			);
+			name = XIBs;
+			sourceTree = "<group>";
+		};
+		9DF6E0DE1A6C34F3000FB649 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9DF6E0D21A6C34E1000FB649 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -155,6 +171,7 @@
 		9DF6E0A41A6C34A0000FB649 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = ORS;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Open Reel Software";
 				TargetAttributes = {
@@ -191,8 +208,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DF6E0B71A6C34A0000FB649 /* Images.xcassets in Resources */,
-				9DF6E0BA1A6C34A0000FB649 /* MainMenu.xib in Resources */,
+				9DF6E0DA1A6C34E7000FB649 /* MainMenu.xib in Resources */,
+				9DF6E0DB1A6C34E7000FB649 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,8 +227,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DF6E0B51A6C34A0000FB649 /* main.m in Sources */,
-				9DF6E0B31A6C34A0000FB649 /* AppDelegate.m in Sources */,
+				9DF6E0D41A6C34E1000FB649 /* main.m in Sources */,
+				9DF6E0D31A6C34E1000FB649 /* ORSAppController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,10 +251,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9DF6E0B81A6C34A0000FB649 /* MainMenu.xib */ = {
+		9DF6E0D61A6C34E7000FB649 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9DF6E0B91A6C34A0000FB649 /* Base */,
+				9DF6E0D71A6C34E7000FB649 /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -326,7 +343,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "Elecraft Controller/Info.plist";
+				INFOPLIST_FILE = Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -337,7 +354,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "Elecraft Controller/Info.plist";
+				INFOPLIST_FILE = Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -398,6 +415,7 @@
 				9DF6E0CB1A6C34A0000FB649 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9DF6E0CC1A6C34A0000FB649 /* Build configuration list for PBXNativeTarget "Elecraft ControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -406,6 +424,7 @@
 				9DF6E0CE1A6C34A0000FB649 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

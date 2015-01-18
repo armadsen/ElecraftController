@@ -6,14 +6,12 @@
 //  Copyright (c) 2015 Open Reel Software. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "ORSAppController.h"
 
-@interface AppDelegate ()
-
-@property (weak) IBOutlet NSWindow *window;
+@interface ORSAppController ()
 @end
 
-@implementation AppDelegate
+@implementation ORSAppController
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	// Insert code here to initialize your application
