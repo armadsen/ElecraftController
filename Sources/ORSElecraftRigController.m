@@ -52,12 +52,11 @@
 
 - (void)requestVFOAFrequencyFromRig
 {
-	ORSSerialRequest *request = [self requestToReadRigValueWithDataToSend:[@"fa;" dataUsingEncoding:NSASCIIStringEncoding]
-															 propertyName:@"vfoAFrequencyInKHz"
-															  parserBlock:^id(NSData *inputData) {
-																  return [self vfoFrequencyInKHzFromResponseData:inputData];
-															  }];
-	[self.serialPort sendRequest:request];
+	[self sendRequestToReadRigValueWithDataToSend:[@"fa;" dataUsingEncoding:NSASCIIStringEncoding]
+									 propertyName:@"vfoAFrequencyInKHz"
+									  parserBlock:^id(NSData *inputData) {
+										  return [self vfoFrequencyInKHzFromResponseData:inputData];
+									  }];
 }
 
 - (void)writeVFOAFrequencyToRig:(NSNumber *)frequency
@@ -72,12 +71,11 @@
 
 - (void)requestVFOBFrequencyFromRig
 {
-	ORSSerialRequest *request = [self requestToReadRigValueWithDataToSend:[@"fb;" dataUsingEncoding:NSASCIIStringEncoding]
-															 propertyName:@"vfoBFrequencyInKHz"
-															  parserBlock:^id(NSData *inputData) {
-																  return [self vfoFrequencyInKHzFromResponseData:inputData];
-															  }];
-	[self.serialPort sendRequest:request];
+	[self sendRequestToReadRigValueWithDataToSend:[@"fb;" dataUsingEncoding:NSASCIIStringEncoding]
+									 propertyName:@"vfoBFrequencyInKHz"
+									  parserBlock:^id(NSData *inputData) {
+										  return [self vfoFrequencyInKHzFromResponseData:inputData];
+									  }];
 }
 
 - (void)writeVFOBFrequencyToRig:(NSNumber *)frequency
@@ -92,25 +90,24 @@
 
 - (void)requestModeFromRig
 {
-	ORSSerialRequest *request = [self requestToReadRigValueWithDataToSend:[@"md;" dataUsingEncoding:NSASCIIStringEncoding]
-															 propertyName:@"mode"
-															  parserBlock:^id(NSData *inputData) {
-																  return [self modeFromResponseData:inputData];
-															  }];
-	[self.serialPort sendRequest:request];
+	[self sendRequestToReadRigValueWithDataToSend:[@"md;" dataUsingEncoding:NSASCIIStringEncoding]
+									 propertyName:@"mode"
+									  parserBlock:^id(NSData *inputData) {
+										  return [self modeFromResponseData:inputData];
+									  }];
 }
 
 - (void)writeModeToRig:(NSString *)mode
 {
 	NSDictionary *modeToModeCodeMap = @{@"LSB" : @"1",
-						   @"USB" : @"2",
-						   @"CW" : @"3",
-						   @"FM" : @"4",
-						   @"AM" : @"5",
-						   @"RTTY" : @"6",
-						   @"CW-R" : @"7",
-						   @"RTTY-R" : @"9"};
-
+										@"USB" : @"2",
+										@"CW" : @"3",
+										@"FM" : @"4",
+										@"AM" : @"5",
+										@"RTTY" : @"6",
+										@"CW-R" : @"7",
+										@"RTTY-R" : @"9"};
+	
 	NSString *modeCode = modeToModeCodeMap[mode];
 	NSString *commandString = [NSString stringWithFormat:@"md%@;", modeCode];
 	NSData *dataToSend = [commandString dataUsingEncoding:NSASCIIStringEncoding];
@@ -121,13 +118,11 @@
 
 - (void)requestPowerLevelFromRig
 {
-	ORSSerialRequest *request = [self requestToReadRigValueWithDataToSend:[@"pc;" dataUsingEncoding:NSASCIIStringEncoding]
-															 propertyName:@"powerLevelInWatts"
-															  parserBlock:^id(NSData *inputData) {
-																  return [self powerLevelFromResponseData:inputData];
-															  }];
-	
-	[self.serialPort sendRequest:request];
+	[self sendRequestToReadRigValueWithDataToSend:[@"pc;" dataUsingEncoding:NSASCIIStringEncoding]
+									 propertyName:@"powerLevelInWatts"
+									  parserBlock:^id(NSData *inputData) {
+										  return [self powerLevelFromResponseData:inputData];
+									  }];
 }
 
 - (void)writePowerLevelToRig:(double)powerLevel
@@ -141,19 +136,20 @@
 
 #pragma mark Request Generation
 
-- (ORSSerialRequest *)requestToReadRigValueWithDataToSend:(NSData *)dataToSend
-											 propertyName:(NSString *)propertyName
-											  parserBlock:(id(^)(NSData *inputData))parserBlock
+- (void)sendRequestToReadRigValueWithDataToSend:(NSData *)dataToSend
+								   propertyName:(NSString *)propertyName
+									parserBlock:(id(^)(NSData *inputData))parserBlock
 {
 	NSDictionary *userInfo = @{@"requesetType": @"read",
 							   @"propertyName": propertyName,
 							   @"parserBlock": [parserBlock copy]};
-	return [ORSSerialRequest requestWithDataToSend:dataToSend
-										  userInfo:userInfo
-								   timeoutInterval:kORSElecraftTimeoutInterval
-								 responseEvaluator:^BOOL(NSData *inputData) {
-									 return parserBlock(inputData) != nil;
-								 }];
+	ORSSerialRequest *request = [ORSSerialRequest requestWithDataToSend:dataToSend
+															   userInfo:userInfo
+														timeoutInterval:kORSElecraftTimeoutInterval
+													  responseEvaluator:^BOOL(NSData *inputData) {
+														  return parserBlock(inputData) != nil;
+													  }];
+	[self.serialPort sendRequest:request];
 }
 
 #pragma mark - Response Handling
