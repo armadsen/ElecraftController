@@ -9,9 +9,13 @@
 #import "ORSElecraftRigController.h"
 #import <ORSSerial/ORSSerial.h>
 
+#define kORSElecraftTimeoutInterval 1.0
+#define kORSElecraftPollingInterval 1.0
+
 @interface ORSElecraftRigController () <ORSSerialPortDelegate>
 
 @property (nonatomic, strong) NSTimer *pollingTimer;
+@property (nonatomic, getter=isHandlingResponse) BOOL handlingResponse;
 
 @end
 
@@ -23,7 +27,11 @@
 
 - (void)startPolling
 {
-	self.pollingTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(pollRigForUpdatedValues:) userInfo:nil repeats:YES];
+	self.pollingTimer = [NSTimer scheduledTimerWithTimeInterval:kORSElecraftPollingInterval
+														 target:self
+													   selector:@selector(pollRigForUpdatedValues:)
+													   userInfo:nil
+														repeats:YES];
 	[self pollRigForUpdatedValues:nil]; // Poll for the first time immediately
 }
 
@@ -34,52 +42,138 @@
 
 - (void)pollRigForUpdatedValues:(NSTimer *)timer
 {
-	ORSSerialRequest *vfoARequest = [self requestForRigValueWithDataToSend:[@"fa;" dataUsingEncoding:NSASCIIStringEncoding]
-															  propertyName:@"vfoAFrequencyInKHz"
-															   parserBlock:^id(NSData *inputData) {
-																   return [self vfoFrequencyInKHzFromResponseData:inputData];
-															   }];
-	ORSSerialRequest *vfoBRequest = [self requestForRigValueWithDataToSend:[@"fb;" dataUsingEncoding:NSASCIIStringEncoding]
-															  propertyName:@"vfoBFrequencyInKHz"
-															   parserBlock:^id(NSData *inputData) {
-																   return [self vfoFrequencyInKHzFromResponseData:inputData];
-															   }];
-	ORSSerialRequest *modeRequest = [self requestForRigValueWithDataToSend:[@"md;" dataUsingEncoding:NSASCIIStringEncoding]
-															  propertyName:@"mode"
-															   parserBlock:^id(NSData *inputData) {
-																   return [self modeFromResponseData:inputData];
-															   }];
-	ORSSerialRequest *powerLevelRequest = [self requestForRigValueWithDataToSend:[@"pc;" dataUsingEncoding:NSASCIIStringEncoding]
-															  propertyName:@"powerLevelInWatts"
-															   parserBlock:^id(NSData *inputData) {
-																   return [self powerLevelFromResponseData:inputData];
-															   }];
-	
-	[self.serialPort sendRequest:vfoARequest];
-	[self.serialPort sendRequest:vfoBRequest];
-	[self.serialPort sendRequest:modeRequest];
-	[self.serialPort sendRequest:powerLevelRequest];
+	[self requestVFOAFrequencyFromRig];
+	[self requestVFOBFrequencyFromRig];
+	[self requestModeFromRig];
+	[self requestPowerLevelFromRig];
 }
 
 #pragma mark Communication
 
+- (void)requestVFOAFrequencyFromRig
+{
+	ORSSerialRequest *request = [self requestToReadRigValueWithDataToSend:[@"fa;" dataUsingEncoding:NSASCIIStringEncoding]
+															 propertyName:@"vfoAFrequencyInKHz"
+															  parserBlock:^id(NSData *inputData) {
+																  return [self vfoFrequencyInKHzFromResponseData:inputData];
+															  }];
+	[self.serialPort sendRequest:request];
+}
+
+- (void)writeVFOAFrequencyToRig:(NSNumber *)frequency
+{
+	NSUInteger freqInHz = (NSUInteger)([frequency doubleValue]*(double)1e3);
+	NSString *commandString = [NSString stringWithFormat:@"fa%0*li;", 11, (long)freqInHz];
+	NSData *dataToSend = [commandString dataUsingEncoding:NSASCIIStringEncoding];
+	
+	ORSSerialRequest *request = [ORSSerialRequest requestWithDataToSend:dataToSend userInfo:nil timeoutInterval:kORSElecraftTimeoutInterval responseEvaluator:nil];
+	[self.serialPort sendRequest:request];
+}
+
+- (void)requestVFOBFrequencyFromRig
+{
+	ORSSerialRequest *request = [self requestToReadRigValueWithDataToSend:[@"fb;" dataUsingEncoding:NSASCIIStringEncoding]
+															 propertyName:@"vfoBFrequencyInKHz"
+															  parserBlock:^id(NSData *inputData) {
+																  return [self vfoFrequencyInKHzFromResponseData:inputData];
+															  }];
+	[self.serialPort sendRequest:request];
+}
+
+- (void)writeVFOBFrequencyToRig:(NSNumber *)frequency
+{
+	NSUInteger freqInHz = (NSUInteger)([frequency doubleValue]*(double)1e3);
+	NSString *commandString = [NSString stringWithFormat:@"fb%0*li;", 11, (long)freqInHz];
+	NSData *dataToSend = [commandString dataUsingEncoding:NSASCIIStringEncoding];
+	
+	ORSSerialRequest *request = [ORSSerialRequest requestWithDataToSend:dataToSend userInfo:nil timeoutInterval:kORSElecraftTimeoutInterval responseEvaluator:nil];
+	[self.serialPort sendRequest:request];
+}
+
+- (void)requestModeFromRig
+{
+	ORSSerialRequest *request = [self requestToReadRigValueWithDataToSend:[@"md;" dataUsingEncoding:NSASCIIStringEncoding]
+															 propertyName:@"mode"
+															  parserBlock:^id(NSData *inputData) {
+																  return [self modeFromResponseData:inputData];
+															  }];
+	[self.serialPort sendRequest:request];
+}
+
+- (void)writeModeToRig:(NSString *)mode
+{
+	NSDictionary *modeToModeCodeMap = @{@"LSB" : @"1",
+						   @"USB" : @"2",
+						   @"CW" : @"3",
+						   @"FM" : @"4",
+						   @"AM" : @"5",
+						   @"RTTY" : @"6",
+						   @"CW-R" : @"7",
+						   @"RTTY-R" : @"9"};
+
+	NSString *modeCode = modeToModeCodeMap[mode];
+	NSString *commandString = [NSString stringWithFormat:@"md%@;", modeCode];
+	NSData *dataToSend = [commandString dataUsingEncoding:NSASCIIStringEncoding];
+	
+	ORSSerialRequest *request = [ORSSerialRequest requestWithDataToSend:dataToSend userInfo:nil timeoutInterval:kORSElecraftTimeoutInterval responseEvaluator:nil];
+	[self.serialPort sendRequest:request];
+}
+
+- (void)requestPowerLevelFromRig
+{
+	ORSSerialRequest *request = [self requestToReadRigValueWithDataToSend:[@"pc;" dataUsingEncoding:NSASCIIStringEncoding]
+															 propertyName:@"powerLevelInWatts"
+															  parserBlock:^id(NSData *inputData) {
+																  return [self powerLevelFromResponseData:inputData];
+															  }];
+	
+	[self.serialPort sendRequest:request];
+}
+
+- (void)writePowerLevelToRig:(double)powerLevel
+{
+	NSString *commandString = [NSString stringWithFormat:@"PC%0*li;", 3, (unsigned long)powerLevel];
+	NSData *dataToSend = [commandString dataUsingEncoding:NSASCIIStringEncoding];
+	
+	ORSSerialRequest *request = [ORSSerialRequest requestWithDataToSend:dataToSend userInfo:nil timeoutInterval:kORSElecraftTimeoutInterval responseEvaluator:nil];
+	[self.serialPort sendRequest:request];
+}
+
 #pragma mark Request Generation
 
-- (ORSSerialRequest *)requestForRigValueWithDataToSend:(NSData *)dataToSend
-										  propertyName:(NSString *)propertyName
-										   parserBlock:(id(^)(NSData *inputData))parserBlock
+- (ORSSerialRequest *)requestToReadRigValueWithDataToSend:(NSData *)dataToSend
+											 propertyName:(NSString *)propertyName
+											  parserBlock:(id(^)(NSData *inputData))parserBlock
 {
-	NSDictionary *userInfo = @{@"propertyName": propertyName,
+	NSDictionary *userInfo = @{@"requesetType": @"read",
+							   @"propertyName": propertyName,
 							   @"parserBlock": [parserBlock copy]};
 	return [ORSSerialRequest requestWithDataToSend:dataToSend
 										  userInfo:userInfo
-								   timeoutInterval:1.0
+								   timeoutInterval:kORSElecraftTimeoutInterval
 								 responseEvaluator:^BOOL(NSData *inputData) {
 									 return parserBlock(inputData) != nil;
 								 }];
 }
 
-#pragma mark Response Handling (Parsers)
+#pragma mark - Response Handling
+
+- (void)handleResponse:(NSData *)responseData toReadRequest:(ORSSerialRequest *)request
+{
+	NSDictionary *userInfo = request.userInfo;
+	NSString *propertyName = userInfo[@"propertyName"];
+	id(^parserBlock)(NSData *) = userInfo[@"parserBlock"];
+	id value = parserBlock(responseData);
+	if (!value) {
+		// Handle error
+		return;
+	}
+	self.handlingResponse = YES; // Prevent sending an update back to the rig
+	[self setValue:value forKey:propertyName];
+	self.handlingResponse = NO;
+}
+
+#pragma mark Response Parsers
 
 - (NSNumber *)vfoFrequencyInKHzFromResponseData:(NSData *)data
 {
@@ -146,15 +240,7 @@
 
 - (void)serialPort:(ORSSerialPort *)serialPort didReceiveResponse:(NSData *)responseData toRequest:(ORSSerialRequest *)request
 {
-	NSDictionary *userInfo = request.userInfo;
-	NSString *propertyName = userInfo[@"propertyName"];
-	id(^parserBlock)(NSData *) = userInfo[@"parserBlock"];
-	id value = parserBlock(responseData);
-	if (!value) {
-		// Handle error
-		return;
-	}
-	[self setValue:value forKey:propertyName];
+	[self handleResponse:responseData toReadRequest:request];
 }
 
 - (void)serialPort:(ORSSerialPort *)serialPort requestDidTimeout:(ORSSerialRequest *)request
@@ -183,6 +269,56 @@
 	if (pollingTimer != _pollingTimer) {
 		[_pollingTimer invalidate];
 		_pollingTimer = pollingTimer;
+	}
+}
+
+#pragma mark Rig Values
+
+- (void)setVfoAFrequencyInKHz:(NSInteger)vfoAFrequencyInKHz
+{
+	if (vfoAFrequencyInKHz != _vfoAFrequencyInKHz) {
+		_vfoAFrequencyInKHz = vfoAFrequencyInKHz;
+	}
+	
+	if (!self.isHandlingResponse) {
+		[self writeVFOAFrequencyToRig:@(vfoAFrequencyInKHz)];
+		[self requestVFOAFrequencyFromRig]; // Verify that write was successful
+	}
+}
+
+- (void)setVfoBFrequencyInKHz:(NSInteger)vfoBFrequencyInKHz
+{
+	if (vfoBFrequencyInKHz != _vfoBFrequencyInKHz) {
+		_vfoBFrequencyInKHz = vfoBFrequencyInKHz;
+	}
+	
+	if (!self.isHandlingResponse) {
+		[self writeVFOBFrequencyToRig:@(vfoBFrequencyInKHz)];
+		[self requestVFOBFrequencyFromRig]; // Verify that write was successful
+	}
+}
+
+- (void)setMode:(NSString *)mode
+{
+	if (mode != _mode) {
+		_mode = mode;
+	}
+	
+	if (!self.isHandlingResponse) {
+		[self writeModeToRig:mode];
+		[self requestModeFromRig]; // Verify that write was successful
+	}
+}
+
+- (void)setPowerLevelInWatts:(double)powerLevelInWatts
+{
+	if (powerLevelInWatts != _powerLevelInWatts) {
+		_powerLevelInWatts = powerLevelInWatts;
+	}
+	
+	if (!self.isHandlingResponse) {
+		[self writePowerLevelToRig:powerLevelInWatts];
+		[self requestPowerLevelFromRig];
 	}
 }
 
