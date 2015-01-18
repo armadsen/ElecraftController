@@ -7,6 +7,7 @@
 //
 
 #import "ORSElecraftRigController.h"
+#import <ORSSerial/ORSSerial.h>
 
 @implementation ORSElecraftRigController
 

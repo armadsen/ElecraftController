@@ -15,6 +15,7 @@
 		9DF6E0E21A6C3549000FB649 /* ORSMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6E0E01A6C3549000FB649 /* ORSMainWindowController.m */; };
 		9DF6E0E61A6C355D000FB649 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DF6E0E41A6C355D000FB649 /* MainWindow.xib */; };
 		9DF6E0E91A6C3B19000FB649 /* ORSElecraftRigController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6E0E81A6C3B19000FB649 /* ORSElecraftRigController.m */; };
+		9DF6E0F01A6C3BA1000FB649 /* ORSSerial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DF6E0EF1A6C3B9A000FB649 /* ORSSerial.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,6 +25,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 9DF6E0AB1A6C34A0000FB649;
 			remoteInfo = "Elecraft Controller";
+		};
+		9DF6E0EE1A6C3B9A000FB649 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DF6E0EA1A6C3B9A000FB649 /* ORSSerialPort.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9DCA89121A2BB106009285EB;
+			remoteInfo = ORSSerial;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -43,6 +51,7 @@
 		9DF6E0E51A6C355D000FB649 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		9DF6E0E71A6C3B19000FB649 /* ORSElecraftRigController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSElecraftRigController.h; sourceTree = "<group>"; };
 		9DF6E0E81A6C3B19000FB649 /* ORSElecraftRigController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSElecraftRigController.m; sourceTree = "<group>"; };
+		9DF6E0EA1A6C3B9A000FB649 /* ORSSerialPort.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ORSSerialPort.xcodeproj; path = "ORSSerialPort/Framework Project/ORSSerialPort.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DF6E0F01A6C3BA1000FB649 /* ORSSerial.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +76,7 @@
 		9DF6E0A31A6C34A0000FB649 = {
 			isa = PBXGroup;
 			children = (
+				9DF6E0EA1A6C3B9A000FB649 /* ORSSerialPort.xcodeproj */,
 				9DF6E0CF1A6C34E1000FB649 /* Sources */,
 				9DF6E0D51A6C34E7000FB649 /* Resources */,
 				9DF6E0C21A6C34A0000FB649 /* Elecraft ControllerTests */,
@@ -140,6 +151,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		9DF6E0EB1A6C3B9A000FB649 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9DF6E0EF1A6C3B9A000FB649 /* ORSSerial.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -208,6 +227,12 @@
 			mainGroup = 9DF6E0A31A6C34A0000FB649;
 			productRefGroup = 9DF6E0AD1A6C34A0000FB649 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9DF6E0EB1A6C3B9A000FB649 /* Products */;
+					ProjectRef = 9DF6E0EA1A6C3B9A000FB649 /* ORSSerialPort.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				9DF6E0AB1A6C34A0000FB649 /* Elecraft Controller */,
@@ -215,6 +240,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9DF6E0EF1A6C3B9A000FB649 /* ORSSerial.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ORSSerial.framework;
+			remoteRef = 9DF6E0EE1A6C3B9A000FB649 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		9DF6E0AA1A6C34A0000FB649 /* Resources */ = {
