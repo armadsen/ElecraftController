@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9DF6E0C61A6C34A0000FB649 /* Elecraft_ControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6E0C51A6C34A0000FB649 /* Elecraft_ControllerTests.m */; };
 		9DF6E0D31A6C34E1000FB649 /* ORSAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6E0D11A6C34E1000FB649 /* ORSAppController.m */; };
 		9DF6E0D41A6C34E1000FB649 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6E0D21A6C34E1000FB649 /* main.m */; };
 		9DF6E0DA1A6C34E7000FB649 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DF6E0D61A6C34E7000FB649 /* MainMenu.xib */; };
@@ -19,13 +18,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9DF6E0C01A6C34A0000FB649 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9DF6E0A41A6C34A0000FB649 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9DF6E0AB1A6C34A0000FB649;
-			remoteInfo = "Elecraft Controller";
-		};
 		9DF6E0EE1A6C3B9A000FB649 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9DF6E0EA1A6C3B9A000FB649 /* ORSSerialPort.xcodeproj */;
@@ -37,9 +29,6 @@
 
 /* Begin PBXFileReference section */
 		9DF6E0AC1A6C34A0000FB649 /* Elecraft Controller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Elecraft Controller.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9DF6E0BF1A6C34A0000FB649 /* Elecraft ControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Elecraft ControllerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9DF6E0C41A6C34A0000FB649 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9DF6E0C51A6C34A0000FB649 /* Elecraft_ControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Elecraft_ControllerTests.m; sourceTree = "<group>"; };
 		9DF6E0D01A6C34E1000FB649 /* ORSAppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSAppController.h; sourceTree = "<group>"; };
 		9DF6E0D11A6C34E1000FB649 /* ORSAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSAppController.m; sourceTree = "<group>"; };
 		9DF6E0D21A6C34E1000FB649 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -63,13 +52,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9DF6E0BC1A6C34A0000FB649 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -79,7 +61,6 @@
 				9DF6E0EA1A6C3B9A000FB649 /* ORSSerialPort.xcodeproj */,
 				9DF6E0CF1A6C34E1000FB649 /* Sources */,
 				9DF6E0D51A6C34E7000FB649 /* Resources */,
-				9DF6E0C21A6C34A0000FB649 /* Elecraft ControllerTests */,
 				9DF6E0AD1A6C34A0000FB649 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,26 +69,8 @@
 			isa = PBXGroup;
 			children = (
 				9DF6E0AC1A6C34A0000FB649 /* Elecraft Controller.app */,
-				9DF6E0BF1A6C34A0000FB649 /* Elecraft ControllerTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		9DF6E0C21A6C34A0000FB649 /* Elecraft ControllerTests */ = {
-			isa = PBXGroup;
-			children = (
-				9DF6E0C51A6C34A0000FB649 /* Elecraft_ControllerTests.m */,
-				9DF6E0C31A6C34A0000FB649 /* Supporting Files */,
-			);
-			path = "Elecraft ControllerTests";
-			sourceTree = "<group>";
-		};
-		9DF6E0C31A6C34A0000FB649 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				9DF6E0C41A6C34A0000FB649 /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		9DF6E0CF1A6C34E1000FB649 /* Sources */ = {
@@ -179,24 +142,6 @@
 			productReference = 9DF6E0AC1A6C34A0000FB649 /* Elecraft Controller.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9DF6E0BE1A6C34A0000FB649 /* Elecraft ControllerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9DF6E0CC1A6C34A0000FB649 /* Build configuration list for PBXNativeTarget "Elecraft ControllerTests" */;
-			buildPhases = (
-				9DF6E0BB1A6C34A0000FB649 /* Sources */,
-				9DF6E0BC1A6C34A0000FB649 /* Frameworks */,
-				9DF6E0BD1A6C34A0000FB649 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9DF6E0C11A6C34A0000FB649 /* PBXTargetDependency */,
-			);
-			name = "Elecraft ControllerTests";
-			productName = "Elecraft ControllerTests";
-			productReference = 9DF6E0BF1A6C34A0000FB649 /* Elecraft ControllerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -209,10 +154,6 @@
 				TargetAttributes = {
 					9DF6E0AB1A6C34A0000FB649 = {
 						CreatedOnToolsVersion = 6.1.1;
-					};
-					9DF6E0BE1A6C34A0000FB649 = {
-						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = 9DF6E0AB1A6C34A0000FB649;
 					};
 				};
 			};
@@ -236,7 +177,6 @@
 			projectRoot = "";
 			targets = (
 				9DF6E0AB1A6C34A0000FB649 /* Elecraft Controller */,
-				9DF6E0BE1A6C34A0000FB649 /* Elecraft ControllerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -262,13 +202,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9DF6E0BD1A6C34A0000FB649 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -283,23 +216,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9DF6E0BB1A6C34A0000FB649 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9DF6E0C61A6C34A0000FB649 /* Elecraft_ControllerTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		9DF6E0C11A6C34A0000FB649 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9DF6E0AB1A6C34A0000FB649 /* Elecraft Controller */;
-			targetProxy = 9DF6E0C01A6C34A0000FB649 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9DF6E0D61A6C34E7000FB649 /* MainMenu.xib */ = {
@@ -419,42 +336,6 @@
 			};
 			name = Release;
 		};
-		9DF6E0CD1A6C34A0000FB649 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Elecraft ControllerTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Elecraft Controller.app/Contents/MacOS/Elecraft Controller";
-			};
-			name = Debug;
-		};
-		9DF6E0CE1A6C34A0000FB649 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Elecraft ControllerTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Elecraft Controller.app/Contents/MacOS/Elecraft Controller";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -472,15 +353,6 @@
 			buildConfigurations = (
 				9DF6E0CA1A6C34A0000FB649 /* Debug */,
 				9DF6E0CB1A6C34A0000FB649 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9DF6E0CC1A6C34A0000FB649 /* Build configuration list for PBXNativeTarget "Elecraft ControllerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9DF6E0CD1A6C34A0000FB649 /* Debug */,
-				9DF6E0CE1A6C34A0000FB649 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
