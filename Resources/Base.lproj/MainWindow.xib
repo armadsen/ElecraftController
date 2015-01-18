@@ -48,7 +48,7 @@
                         <connections>
                             <binding destination="-2" name="content" keyPath="serialPortManager.availablePorts" id="GAb-dx-ddl"/>
                             <binding destination="-2" name="contentValues" keyPath="serialPortManager.availablePorts.name" previousBinding="GAb-dx-ddl" id="Svu-sh-7n2"/>
-                            <binding destination="-2" name="selectedObject" keyPath="rigController.serialPort" previousBinding="Svu-sh-7n2" id="w3u-nY-zSD"/>
+                            <binding destination="2Re-Tr-xz1" name="selectedObject" keyPath="serialPort" previousBinding="Svu-sh-7n2" id="3KY-3f-G4q"/>
                         </connections>
                     </popUpButton>
                     <textField verticalHuggingPriority="750" id="byB-E0-h95">
@@ -61,7 +61,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="-2" name="value" keyPath="rigController.vfoAFrequencyInKHz" id="hj2-wK-lkU"/>
+                            <binding destination="2Re-Tr-xz1" name="value" keyPath="vfoAFrequencyInKHz" id="S7s-51-lil"/>
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Dvu-Ir-TYr">
@@ -92,7 +92,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="-2" name="value" keyPath="rigController.powerLevelInWatts" id="3Ra-fE-c53"/>
+                            <binding destination="2Re-Tr-xz1" name="value" keyPath="powerLevelInWatts" id="SIC-D1-Cts"/>
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Huk-f6-5hC">
@@ -129,7 +129,7 @@
                             </menu>
                         </popUpButtonCell>
                         <connections>
-                            <binding destination="-2" name="selectedValue" keyPath="rigController.mode" id="v45-MS-0Vz"/>
+                            <binding destination="2Re-Tr-xz1" name="selectedValue" keyPath="mode" id="Xr6-dA-SXu"/>
                         </connections>
                     </popUpButton>
                     <box verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="shD-XF-mwL">
@@ -149,7 +149,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="-2" name="value" keyPath="rigController.vfoBFrequencyInKHz" id="MFn-xZ-fEo"/>
+                            <binding destination="2Re-Tr-xz1" name="value" keyPath="vfoBFrequencyInKHz" id="0TE-vk-KMp"/>
                         </connections>
                     </textField>
                 </subviews>
@@ -159,5 +159,6 @@
             </connections>
             <point key="canvasLocation" x="-219.5" y="-132.5"/>
         </window>
+        <customObject id="2Re-Tr-xz1" customClass="ORSElecraftRigController"/>
     </objects>
 </document>

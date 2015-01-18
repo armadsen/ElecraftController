@@ -8,11 +8,6 @@
 
 #import "ORSMainWindowController.h"
 #import <ORSSerial/ORSSerial.h>
-#import "ORSElecraftRigController.h"
-
-@interface ORSMainWindowController ()
-
-@end
 
 @implementation ORSMainWindowController
 
@@ -21,14 +16,6 @@
 	return [[self alloc] initWithWindowNibName:@"MainWindow"];
 }
 
-- (instancetype)initWithWindowNibName:(NSString *)windowNibName
-{
-	self = [super initWithWindowNibName:windowNibName];
-	if (self) {
-		_serialPortManager = [ORSSerialPortManager sharedSerialPortManager];
-		_rigController = [[ORSElecraftRigController alloc] init];
-	}
-	return self;
-}
+- (ORSSerialPortManager *)serialPortManager { return [ORSSerialPortManager sharedSerialPortManager]; }
 
 @end

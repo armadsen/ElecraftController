@@ -9,13 +9,11 @@
 @import Cocoa;
 
 @class ORSSerialPortManager;
-@class ORSElecraftRigController;
 
 @interface ORSMainWindowController : NSWindowController
 
 + (instancetype)windowController;
 
-@property (nonatomic, strong) ORSSerialPortManager *serialPortManager;
-@property (nonatomic, strong) ORSElecraftRigController *rigController;
+@property (nonatomic, strong, readonly) ORSSerialPortManager *serialPortManager;
 
 @end
