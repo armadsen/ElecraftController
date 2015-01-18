@@ -124,6 +124,7 @@
                                     <menuItem title="CW" id="enu-cD-lqQ"/>
                                     <menuItem title="USB" id="LSt-jQ-dRm"/>
                                     <menuItem title="LSB" id="miI-WI-e9H"/>
+                                    <menuItem title="RTTY" id="Y7g-PZ-LRA"/>
                                 </items>
                             </menu>
                         </popUpButtonCell>
