@@ -6,10 +6,16 @@
 //  Copyright (c) 2015 Open Reel Software. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+@import Cocoa;
+
+@class ORSSerialPortManager;
+@class ORSElecraftRigController;
 
 @interface ORSMainWindowController : NSWindowController
 
 + (instancetype)windowController;
+
+@property (nonatomic, strong) ORSSerialPortManager *serialPortManager;
+@property (nonatomic, strong) ORSElecraftRigController *rigController;
 
 @end

@@ -19,10 +19,49 @@
             <view key="contentView" id="se5-gp-TjO">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dWm-01-kyg">
+                        <rect key="frame" x="18" y="233" width="69" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Serial Port" id="OD1-nY-qJb">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f3G-cl-Xf5">
+                        <rect key="frame" x="91" y="228" width="151" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="146" id="i0q-Vy-NdU"/>
+                        </constraints>
+                        <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="IaQ-Dl-gya" id="1HR-4u-XJC">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="elS-X8-rTY">
+                                <items>
+                                    <menuItem title="Item 1" state="on" id="IaQ-Dl-gya"/>
+                                    <menuItem title="Item 2" id="qab-WG-XLs"/>
+                                    <menuItem title="Item 3" id="qPd-fa-lPz"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                        <connections>
+                            <binding destination="-2" name="content" keyPath="serialPortManager.availablePorts" id="GAb-dx-ddl"/>
+                            <binding destination="-2" name="contentValues" keyPath="serialPortManager.availablePorts.name" previousBinding="GAb-dx-ddl" id="Svu-sh-7n2"/>
+                            <binding destination="-2" name="selectedObject" keyPath="rigController.serialPort" previousBinding="Svu-sh-7n2" id="w3u-nY-zSD"/>
+                        </connections>
+                    </popUpButton>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="dWm-01-kyg" firstAttribute="centerY" secondItem="f3G-cl-Xf5" secondAttribute="centerY" id="bwH-sa-tjS"/>
+                    <constraint firstItem="f3G-cl-Xf5" firstAttribute="leading" secondItem="dWm-01-kyg" secondAttribute="trailing" constant="8" symbolic="YES" id="ebT-Aj-iTb"/>
+                    <constraint firstItem="dWm-01-kyg" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="20" symbolic="YES" id="viJ-7n-WY1"/>
+                    <constraint firstItem="dWm-01-kyg" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="20" symbolic="YES" id="ysu-7K-2Ok"/>
+                </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
+            <point key="canvasLocation" x="-22" y="-93"/>
         </window>
     </objects>
 </document>

@@ -6,7 +6,9 @@
 //  Copyright (c) 2015 Open Reel Software. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
+
+@class ORSSerialPort;
 
 @interface ORSElecraftRigController : NSObject
 
@@ -14,5 +16,7 @@
 @property (nonatomic) NSInteger vfoBFrequencyInKHz;
 @property (nonatomic) double powerLevelInWatts;
 @property (nonatomic, strong) NSString *mode;
+
+@property (nonatomic, strong) ORSSerialPort *serialPort;
 
 @end

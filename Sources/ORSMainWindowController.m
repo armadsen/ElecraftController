@@ -7,6 +7,7 @@
 //
 
 #import "ORSMainWindowController.h"
+#import <ORSSerial/ORSSerial.h>
 
 @interface ORSMainWindowController ()
 
@@ -17,6 +18,15 @@
 + (instancetype)windowController
 {
 	return [[self alloc] initWithWindowNibName:@"MainWindow"];
+}
+
+- (instancetype)initWithWindowNibName:(NSString *)windowNibName
+{
+	self = [super initWithWindowNibName:windowNibName];
+	if (self) {
+		_serialPortManager = [ORSSerialPortManager sharedSerialPortManager];
+	}
+	return self;
 }
 
 @end
