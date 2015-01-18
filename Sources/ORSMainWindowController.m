@@ -8,6 +8,7 @@
 
 #import "ORSMainWindowController.h"
 #import <ORSSerial/ORSSerial.h>
+#import "ORSElecraftRigController.h"
 
 @interface ORSMainWindowController ()
 
@@ -25,6 +26,7 @@
 	self = [super initWithWindowNibName:windowNibName];
 	if (self) {
 		_serialPortManager = [ORSSerialPortManager sharedSerialPortManager];
+		_rigController = [[ORSElecraftRigController alloc] init];
 	}
 	return self;
 }
