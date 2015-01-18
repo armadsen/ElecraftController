@@ -52,6 +52,9 @@
                     </popUpButton>
                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="byB-E0-h95">
                         <rect key="frame" x="95" y="110" width="130" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="130" id="FyF-4y-x5e"/>
+                        </constraints>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="vXh-YZ-1yV">
                             <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.#####" negativeFormat="###0.#####" numberStyle="decimal" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" minimumFractionDigits="3" maximumFractionDigits="6" id="Qta-7N-4Bl" userLabel="Number Formatter"/>
                             <font key="font" metaFont="system"/>
@@ -72,6 +75,9 @@
                     </textField>
                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fEB-28-dLC">
                         <rect key="frame" x="95" y="80" width="130" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="130" id="cKb-9g-q4p"/>
+                        </constraints>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="axE-u2-HoG">
                             <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="###0.#####" negativeFormat="###0.#####" numberStyle="decimal" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" minimumFractionDigits="3" maximumFractionDigits="6" id="oBG-5l-woy" userLabel="Number Formatter"/>
                             <font key="font" metaFont="system"/>
@@ -108,6 +114,9 @@
                     </textField>
                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9qc-tI-Z0g">
                         <rect key="frame" x="94" y="17" width="134" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="129" id="9Az-2H-HEt"/>
+                        </constraints>
                         <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="N0C-hT-Je0">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
@@ -131,6 +140,9 @@
                     </box>
                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RpF-9h-05h">
                         <rect key="frame" x="95" y="50" width="130" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="130" id="Hhf-uo-8C7"/>
+                        </constraints>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Xc5-m6-NhP">
                             <numberFormatter key="formatter" formatterBehavior="custom10_4" positiveFormat="#,##0" negativeFormat="#,##0" numberStyle="decimal" allowsFloats="NO" usesGroupingSeparator="NO" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" id="aPR-hg-gSg"/>
                             <font key="font" metaFont="system"/>
