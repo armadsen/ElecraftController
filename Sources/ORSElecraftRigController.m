@@ -32,7 +32,7 @@
 													   selector:@selector(pollRigForUpdatedValues:)
 													   userInfo:nil
 														repeats:YES];
-	[self pollRigForUpdatedValues:nil]; // Poll for the first time immediately
+	[self.pollingTimer fire]; // Poll for the first time immediately
 }
 
 - (void)stopPolling

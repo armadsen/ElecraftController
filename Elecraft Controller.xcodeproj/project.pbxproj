@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D3FF0F01AB09B1800E9B6F9 /* ORSSerial.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 9DF6E0EF1A6C3B9A000FB649 /* ORSSerial.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9DF6E0D31A6C34E1000FB649 /* ORSAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6E0D11A6C34E1000FB649 /* ORSAppController.m */; };
 		9DF6E0D41A6C34E1000FB649 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6E0D21A6C34E1000FB649 /* main.m */; };
 		9DF6E0DA1A6C34E7000FB649 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DF6E0D61A6C34E7000FB649 /* MainMenu.xib */; };
@@ -26,6 +27,20 @@
 			remoteInfo = ORSSerial;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9D3FF0EE1AB09B0D00E9B6F9 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9D3FF0F01AB09B1800E9B6F9 /* ORSSerial.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9DF6E0AC1A6C34A0000FB649 /* Elecraft Controller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Elecraft Controller.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +147,7 @@
 				9DF6E0A81A6C34A0000FB649 /* Sources */,
 				9DF6E0A91A6C34A0000FB649 /* Frameworks */,
 				9DF6E0AA1A6C34A0000FB649 /* Resources */,
+				9D3FF0EE1AB09B0D00E9B6F9 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
